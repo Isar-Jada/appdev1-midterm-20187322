@@ -1,1 +1,24 @@
-<p>task-list-component works!</p>
+<h1>Tasks!</h1>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Due Date</th>
+            <th scope="col">Status</th>
+            <th scope="col">Priority</th>
+            <th scope="col">Edit</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr class="table-active">
+            <th scope="row">{{newTask.title}}</th>
+            <td>{{newTask.dueDate}}</td>
+            <td>{{newTask.status}}</td>
+            <td>{{newTask.priorityLevel}}</td>
+            <button type="button" class="btn btn-primary">View Details</button>
+        </tr>
+    </tbody>
+
+</table>

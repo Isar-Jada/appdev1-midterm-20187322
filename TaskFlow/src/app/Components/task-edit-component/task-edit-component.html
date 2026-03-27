@@ -8,14 +8,13 @@
         <th scope="col">Status</th>
         <th scope="col">Priority</th>
         <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
       </tr>
     </thead>
     @if (visible) {
         <tbody>
             <tr class="table-active">
-              <th scope="row">
-                  <input type="title" [(ngModel)]="newTask.title">
-              </th>
+              <th scope="row"><input type="title" [(ngModel)]="newTask.title"></th>
               <td><input type="text" [(ngModel)]="newTask.description"></td>
               <td><input type="text" [(ngModel)]="newTask.dueDate"></td>
               <td><div>
@@ -32,9 +31,12 @@
                   <option>High</option>
                 </select>
               </div></td>
-              <button type="button" class="btn btn-primary" (click)="onConfirm()">Confirm</button>
+              <td><button type="button" class="btn btn-primary" (click)="onConfirm()">Confirm</button></td>
+              <td><button type="button" class="btn btn-primary" (click)="onDelete()">Delete</button></td>
             </tr>
           </tbody>
+    }@else if (!visible && deleted) {
+            <p>No tasks o3o</p>
     }@else {
         <tbody>
             <tr class="table-active">
@@ -43,9 +45,12 @@
                 <td>{{newTask.dueDate}}</td>
                 <td>{{newTask.status}}</td>
                 <td>{{newTask.priorityLevel}}</td>
-                <button type="button" class="btn btn-primary" (click)="onEdit()">Edit</button>
+                <td><button type="button" class="btn btn-primary" (click)="onEdit()">Edit</button></td>
+                <td><button type="button" class="btn btn-primary" (click)="onDelete()">Delete</button></td>
             </tr>
         </tbody>
     }
+
+    
         
-  </table>
+</table>

@@ -30,6 +30,12 @@
         </tbody>
       </table>
 
-      <button type="button" class="btn btn-primary" (click)="onClick()">Confirm</button>
+      <button type="button" class="btn btn-primary" (click)="onConfirm()" >Confirm</button>
+
+      @if (confirmed) {
+        <button type="button" class="btn btn-primary" (click)="onSubmit()" >Submit</button>
+      }@else {
+        <button type="button" class="btn btn-primary" (click)="onSubmit()" disabled>Submit</button>
+      }
 }
 

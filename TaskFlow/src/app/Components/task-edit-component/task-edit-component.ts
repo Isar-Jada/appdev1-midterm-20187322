@@ -9,7 +9,8 @@ import { FormsModule } from '@angular/forms';
 })
 export class TaskEditComponent {
   visible: boolean = false
-  newTask: taskModel = {title: ':))', description: 'weeeeeeeee', dueDate: '1029448', status: 'Pending', priorityLevel: 'Low'};
+  newTask: taskModel = {taskId: 1, title: 'Maam', description: 'I tried', dueDate: 'TvT', status: 'Pending', priorityLevel: 'Low'};
+  deleted: boolean = false;
 
   onEdit(){
     this.visible = true;
@@ -17,5 +18,12 @@ export class TaskEditComponent {
 
   onConfirm(){
     this.visible=false;
+  }
+
+  onDelete(){
+    if(confirm("Are you sure?")){
+      alert("Task Deleted!");
+      this.deleted=true;
+    }
   }
 }

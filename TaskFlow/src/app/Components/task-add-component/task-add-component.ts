@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { TaskService } from '../../Task/task-service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-task-add-component',
@@ -9,14 +11,26 @@ import { FormsModule } from '@angular/forms';
 })
 export class TaskAddComponent {
   clicked: boolean = false;
-  taskNum: number = 0;
-  newTask: taskModel = {title: '', description: '', dueDate: '', status: '', priorityLevel: ''};
+  confirmed: boolean = false;
+  newTask: taskModel = {taskId: 1,title: '', description: '', dueDate: '', status: '', priorityLevel: ''};
 
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private taskService: TaskService
+  ) {}
+  
   onClick(){
     this.clicked = true;
   }
 
   onConfirm(){
-    
+    this.confirmed = true;
   }
+
+  onSubmit(){
+    alert("Task Added!");
+  }
+
+  
 }
