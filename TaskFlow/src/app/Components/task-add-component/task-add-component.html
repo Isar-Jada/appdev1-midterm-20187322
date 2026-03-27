@@ -1,1 +1,35 @@
-<p>task-add-component works!</p>
+<button type="button" class="btn btn-primary" (click)="onClick()">Add New Task</button>
+
+@if(clicked){
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Due Date</th>
+            <th scope="col">Status</th>
+            <th scope="col">Priority</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="table-active">
+            <th scope="row">
+                <input type="title" [(ngModel)]="newTask.title">
+            </th>
+            <td><input type="text" [(ngModel)]="newTask.description"></td>
+            <td><input type="text" [(ngModel)]="newTask.dueDate"></td>
+            <td><div>
+                <select class="form-select" [(ngModel)]="newTask.status">
+                  <option>Pending</option>
+                  <option>In Progress</option>
+                  <option>Completed</option>
+                </select>
+              </div></td>
+            <td><input type="text" [(ngModel)]="newTask.priorityLevel"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <button type="button" class="btn btn-primary" (click)="onClick()">Confirm</button>
+}
+
